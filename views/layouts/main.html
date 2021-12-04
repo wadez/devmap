@@ -13,7 +13,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}Read now. Follow a mapped journey to discover essential skills for web developers. Start from scratch and work your way towards professional skills. Step 1: Learn to HTML code...{% endblock %}">
+    <meta property="og:title" content="{{ self.title().strip() }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{% block url %}{{ url_for('home', _external=True) }}{% endblock %}">
+    <meta property="og:image" content="{% block image %}{% endblock %}">
+
     <link rel="stylesheet" href="/solarized-dark.css">
 </head>
 <body>
@@ -23,7 +30,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 {% block content %}{% endblock %}
 <footer style="margin-top: 3rem">
-    All rights reserved &copy; {{now.year}}
+    <div>Made with <a href="https://flask.palletsprojects.com/en/2.0.x/">Flask</a> in hand</div>
+    <div>All rights reserved &copy; {{now.year}}</div>
 </footer>
 </body>
 </html>

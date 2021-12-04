@@ -2,7 +2,12 @@
 @title Learn to HTML Code
 @tags HTML
 @slug learn-html
+@description Are you learning HTML? Read now. Learn to HTML code like a web developer. Discover new ways to format your documents for web and share with the world. HTML tags are the easiest way to highlight key ideas and format your write-ups.
+@image https://images.unsplash.com/flagged/photo-1595577698735-520f16b5d90d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80
+@caption A spotted salamander.
 -->
+
+Sarcasm post to test readability.
 
 Hey everyone on the WorldWideWeb, I just learned something rad! I am going to share, so you can learn to HTML code like me!
 

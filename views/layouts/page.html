@@ -1,10 +1,22 @@
 {% extends 'layouts/main.html' %}
 
+{% block description %}{% endblock %}
+
 {% block title %}{% endblock %}
+{% block image %}{% endblock %}
+{% block url %}{% endblock %}
+{% block caption %}{% endblock %}
+
 
 
 {% block content %}
-    <a href="/">&lt;-- Go Back</a>
+    <a href="/">&lt;-- Home</a>
+    {% if self.image() %}
+        <div class="img-header">
+            <img src="{{ self.image().strip() }}" alt="{{ self.caption().strip() }}">
+        </div>
+    {% endif %}
+    <h1 class="display">{{ self.title().strip() }}</h1>
     {% block page %}{% endblock %}
 {% endblock %}
 

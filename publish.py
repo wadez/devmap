@@ -2,10 +2,15 @@ import os
 import markdown
 import markdown2
 from string import Template
+from datetime import datetime
+from textwrap import wrap, shorten
 
 
 def main():
+    print("Publishing posts:")
+    print("=" * 20)
     walk(os.path.join(os.path.dirname(__file__), "posts"), ["md"])
+    print("[DONE]")
 
 def walk(path, extensions):
     data = []
@@ -16,6 +21,7 @@ def walk(path, extensions):
             if ext[1:] in extensions:
                 readFile(filepath, data)
     writeIndex(data)
+    writeSitemap(data)
 
 
 def createStepper(gen):
@@ -83,9 +89,12 @@ def readFile(filepath, files=[]):
     gen = getFirstCommentBlock(filepath, lines)
     settings = {}
     for tag,data in gen:
-        print([tag, data])
         settings[tag] = data
 
+    print(shorten(str(len(files) + 1) + ") " + settings["title"], width=50, placeholder="..."))
+    print("\n".join(wrap(shorten(settings["description"], width=150, placeholder="..."), 80)))
+    print(shorten("http://127.0.0.1:5000/p/" + settings["slug"], width=50, placeholder="..."))
+    print("=" * 20)
     # html = markdown.markdown("".join(lines))
     html = markdown2.markdown("".join(lines), extras=['tables'])
     pagePath = os.path.join(os.path.dirname(__file__), "views", "pages", settings["slug"] + ".html")
@@ -93,17 +102,24 @@ def readFile(filepath, files=[]):
     with open(pagePath, 'w') as f:
         content = """{% extends 'layouts/page.html' %}
 
-{% block title %}
-  $title
-{% endblock %}
+{% block title %}$title{% endblock %}
 
-{% block page %}
-  <h1 class="display">$title</h1>
-  $html
-{% endblock %}
+{% block description %}$description{% endblock %}
+{% block image %}$image{% endblock %}
+{% block caption %}$caption{% endblock %}
+{% block url %}{{ url_for('page', slug="$slug", _external=True) }}{% endblock %}
+
+{% block page %}$html{% endblock %}
         """
         template = Template(content)
-        render = template.substitute(html=html, title=settings['title'])
+        render = template.substitute(
+            html=html,
+            title=settings['title'],
+            description=settings['description'],
+            slug=settings["slug"],
+            image=settings.get("image", ""),
+            caption=settings.get("caption", "")
+        )
         f.write(render)
         files.append(settings)
 
@@ -122,6 +138,32 @@ def writeIndex(files):
           $html
         {% endblock %}
                 """
+        template = Template(content)
+        render = template.substitute(html="".join(links))
+        f.write(render)
+
+def writeSitemap(files):
+    links = []
+    for settings in files:
+        slug = settings['slug']
+        content = """<url>
+        <loc>https://devmap.org/p/$slug</loc>
+        <lastmod>$date</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        </url>"""
+        template = Template(content)
+        render = template.substitute(slug=slug, date=datetime.utcnow().strftime("%Y-%m-%d"))
+        links.append(render)
+
+    pagePath = os.path.join(os.path.dirname(__file__), "views", "sitemap.xml")
+    with open(pagePath, 'w') as f:
+        content = """{% extends 'layouts/basemap.xml' %}
+
+            {% block pages %}
+              $html
+            {% endblock %}
+                    """
         template = Template(content)
         render = template.substitute(html="".join(links))
         f.write(render)
