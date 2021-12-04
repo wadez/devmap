@@ -2,12 +2,12 @@
 
             {% block pages %}
               <url>
-        <loc>https://devmap.org/p/about</loc>
+        <loc>https://devmap.org/p/learn-html</loc>
         <lastmod>2021-12-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         </url><url>
-        <loc>https://devmap.org/p/learn-html</loc>
+        <loc>https://devmap.org/p/about</loc>
         <lastmod>2021-12-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

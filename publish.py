@@ -125,7 +125,7 @@ def readFile(filepath, files=[]):
 
 def writeIndex(files):
     links = []
-    for settings in files:
+    for settings in reversed(files):
         slug = settings['slug']
         title = settings['title']
         links.append(f'<li><a href="/p/{slug}.html">{title}</a></li>')
