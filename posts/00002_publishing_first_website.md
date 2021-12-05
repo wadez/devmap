@@ -1,7 +1,7 @@
 <!--
 @title How to Go Public With Your Website
 @tags HTML
-@slug about
+@slug first-public-website-how-to
 @description Read to discover expectations of public facing websites. Learn the haphazardness of the web including vendor lock-in and security management.
 -->
 

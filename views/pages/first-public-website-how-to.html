@@ -1,0 +1,125 @@
+{% extends 'layouts/page.html' %}
+
+{% block title %}How to Go Public With Your Website{% endblock %}
+
+{% block description %}Read to discover expectations of public facing websites. Learn the haphazardness of the web including vendor lock-in and security management.{% endblock %}
+{% block image %}{% endblock %}
+{% block caption %}{% endblock %}
+{% block url %}{{ url_for('page', slug="first-public-website-how-to", _external=True) }}{% endblock %}
+
+{% block page %}<!--
+@title How to Go Public With Your Website
+@tags HTML
+@slug first-public-website-how-to
+@description Read to discover expectations of public facing websites. Learn the haphazardness of the web including vendor lock-in and security management.
+-->
+
+<p>Are you are ready to deploy your first web server and need to make a decision? </p>
+
+<p>No fear, this is not a tutorial. This is more of a strategic guide. Decision makers will continue reading. Apply these concepts to your project.</p>
+
+<h2>How Different are Tech Stacks?</h2>
+
+<p>Opinion. After deploying countless websites, you will see the narrow difference between tech stacks. Python, PHP, JavaScript, Elixir, Ruby, and others all write HTTP responses. This uniformity means developers can pass all HTTP handling through a standardized web server interface like Apache/NGINX.</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3j7uy35c0u7x35qxy3x7.png" alt="Highly optimized web growth" /> </p>
+
+<p>Web servers are a MUST and highly optimized for driving web traffic. Apache/NGINX fulfill common needs such as simultaneous requests, encryption, and "path rewriting" (sales). Businesses that do not use quintessential web servers are doomed to face early scaling issues.</p>
+
+<h3>Should you Dodge Vendor Lock-in?</h3>
+
+<p>Standardization allows any executable file to act as a web application. Shoot, you could write a website entirely in bash scripts or Fortran if desired. Thinking abstractly is key, or face some form of vendor lock-in. Ask yourself, how would a competitor tackle this problem? Should I really put all my eggs in one basket?</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ld5qgk7cay5gy5tal2lw.png" alt="Weighing decisions" /></p>
+
+<p>Vendor lock-in means you pay to think the same as someone else. Deviating from vendor culture means you are wrong. Or does it? Perhaps, beforehand, it is better to innovate.</p>
+
+<p>By understanding the foundation of success, production will reap financial benefits!</p>
+
+<h2>Why Does Server Rendering Seem Familiar?</h2>
+
+<p>All server rendering is similar. In the end, data is interpreted or compiled to produce static content for consumers. The consumer may be an end-user, client, or the server itself (caching). The decision is when/how to render the content.</p>
+
+<p>The biggest driving factor of server rendering decisions is Search Engine Optimization (SEO). How well known are you? Can ad networks find you? You MUST thrive in reach for success.</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zx6j6bsbosw1cui7r8n0.png" alt="Networking is vital to infrastructure" /></p>
+
+<p>Client applications put users first, and web servers safely execute requests. The choices come down to static content or dynamic scaling. You can even mix and match! This means, you could default to executing scripts (slow) otherwise return content from a cache (fast, money!).</p>
+
+<h2>What are Server Specification?</h2>
+
+<p>The driving value of computing power. Just like your work station, the server system specs are vital for success. </p>
+
+<p>Memory, CPU, and storage are all highly important. Here are some quick tips when to prioritize a spec. Choose wisely:
+* <strong>Memory</strong>.
+  * Forums.
+  * Buying/selling.
+  * Caching.
+  * Analytics.
+* <strong>CPU</strong>.
+  * Tickers, scores, stocks, etc.
+  * User-specific content.
+  * Robust applications.
+  * Algorithms.
+* <strong>Storage</strong>.
+  * Content generation.
+  * Processing &amp; handling.
+  * Large scale operations.
+  * Data warehousing.</p>
+
+<h2>Who Plans Ahead?</h2>
+
+<p>Smart software engineers plan ahead without over-engineering. When your website goes viral, do not cheap out on servers. Even the smartest developers, tend to panic during crunch time in a production environment. Act now!</p>
+
+<p>Buy the next round, of server specifications, and you will thank yourself later. It's like insurance.</p>
+
+<p>Overthinks will pay early. The industry is built on <a href="https://amzn.to/3lyMF2s">dooms day</a>. Buying the latest "best practice" stack will shoot the money through the roof! Think twice before going with containerization, cloud functions, or other forms of redundancy. How mission critical is your infrastructure?</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/e7odccmfwxxs8s1ycrpe.png" alt="Digital Ocean Winning Big, NYSE" /></p>
+
+<p>Believe or not, most developers like <a href="https://m.do.co/c/4b91879645c4">DigitalOcean</a> and other Virtual Private Servers (VPS) providers. Scaling to millions of users is feasible. The Fortune 500 use VPS, yet shared hosting is still great for kick-starting blogs and forums.</p>
+
+<p>Success comes from the quality of code. It is easier to make way in code rather than infrastructure. Every team needs a guide for the rule book because code is the way of the game!</p>
+
+<h3>Why Opting for Version Control is Beneficial?</h3>
+
+<p>Version control is a MUST for value added. Systems like Git and Subversion allow for continuous integration and resiliency. With the right setup, developers should migrate to any production environment with ease. With the right culture, rollback easy.</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mshe18ghydwahybhipco.png" alt="Spend time to take control" /></p>
+
+<p>Leaders react to watches for events (hooks). For example, when a commit occurs, the production environment will refresh resources and send out an email. After all, work smarter not harder.</p>
+
+<h2>Where Does Security Need Attention?</h2>
+
+<p>Focus efforts on hardening your server infrastructure. With zero enemies, you will be a victim of random cyber-attacks. </p>
+
+<p>Ransomware is impossible to solve and often means total loss of business records and judicial hearings. Find the right people to lock down your server as much as possible and prevent attacks to your business, or involuntary recruitment to "botnets".</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qdodailnhgn5bmha1f43.png" alt="Hacking can happen anytime and anywhere!" /></p>
+
+<h3>DOs and DON'Ts of Web Security.</h3>
+
+<ul>
+<li>DO use a password protect when available.</li>
+<li>DO use multi-factor authentication when available.</li>
+<li>DO encrypt when available.</li>
+<li>DO disable unused services.</li>
+<li>DO load balancing.</li>
+<li>DO dedicated users for web services.</li>
+<li>DO prevent distributed attacks, with services like CloudFlare.</li>
+<li>DON'T use default port numbers.</li>
+<li>DON'T use weak passwords.</li>
+<li>DON'T execute services as root, admin, or master.</li>
+<li>DON'T trust every tutorial you read.</li>
+<li>DON'T store passwords in plain text.</li>
+<li><strong>DO stay updated on security best practices.</strong></li>
+<li><strong>DO security for hire</strong></li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>Think abstractly when deploying your website for success.
+Remember selling insurance is easy. Dodge bullets, and you
+will be aye okay because winners apply existing concepts to new ideas.</p>
+{% endblock %}
+        
