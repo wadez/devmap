@@ -17,11 +17,11 @@ A clean UI requires all cards and images to be perfectly sized across all device
 Forcing a size for media is non-trivial with pixels but how do you force a responsive ratio? Perhaps, a profile banner is 1500x500 pixels but user uploaded content makes preserving user experiences challenging. The answer is aspect ratio containers.
 
 demo: https://play.tailwindcss.com/hBXgOiGwv7
-```html
-<iframe class="w-full aspect-video ..." 
-        src="https://www.youtube.com/ ...">
-</iframe>
-```
+
+    <iframe class="w-full aspect-video ..." 
+            src="https://www.youtube.com/ ...">
+    </iframe>
+
 
 Aspect ratios will force the content to grow to the width of the container while auto-scaling the height to match the ratio to `16:9`.  A node with a width of `1920` will have a height of `1080` while on mobile it will scale to `320x180`.
 
@@ -37,52 +37,52 @@ The inset technique plays nicely with aspect ratio containers. Perhaps, a square
 However, Tailwind developers know this technique is common. Now a single utility class will handle all the positioning. Insets will fill or partially fill the entire parent node.
 
 demo: https://play.tailwindcss.com/4ZTlx80ryN
-```html
-<!-- Pin to top left corner -->
-<div class="relative aspect-square ...">
-  <div class="absolute left-0 top-0 h-1/2 w-1/2 ...">01</div>
-</div>
 
-<!-- Span top edge -->
-<div class="relative aspect-square ...">
-  <div class="absolute inset-x-0 top-0 h-1/2 ...">02</div>
-</div>
+    <!-- Pin to top left corner -->
+    <div class="relative aspect-square ...">
+      <div class="absolute left-0 top-0 h-1/2 w-1/2 ...">01</div>
+    </div>
+    
+    <!-- Span top edge -->
+    <div class="relative aspect-square ...">
+      <div class="absolute inset-x-0 top-0 h-1/2 ...">02</div>
+    </div>
+    
+    <!-- Pin to top right corner -->
+    <div class="relative aspect-square ...">
+      <div class="absolute top-0 right-0 h-1/2 w-1/2 ...">03</div>
+    </div>
+    
+    <!-- Span left edge -->
+    <div class="relative aspect-square ...">
+      <div class="absolute inset-y-0 left-0 w-1/2 ...">04</div>
+    </div>
+    
+    <!-- Fill entire parent -->
+    <div class="relative aspect-square ...">
+      <div class="absolute inset-0 ...">05</div>
+    </div>
+    
+    <!-- Span right edge -->
+    <div class="relative aspect-square ...">
+      <div class="absolute inset-y-0 right-0 w-1/2 ...">06</div>
+    </div>
+    
+    <!-- Pin to bottom left corner -->
+    <div class="relative aspect-square ...">
+      <div class="absolute bottom-0 left-0 h-1/2 w-1/2 ...">07</div>
+    </div>
+    
+    <!-- Span bottom edge -->
+    <div class="relative aspect-square ...">
+      <div class="absolute inset-x-0 bottom-0 h-1/2 ...">08</div>
+    </div>
+    
+    <!-- Pin to bottom right corner -->
+    <div class="relative aspect-square ...">
+      <div class="absolute bottom-0 right-0 h-1/2 w-1/2 ...">09</div>
+    </div>
 
-<!-- Pin to top right corner -->
-<div class="relative aspect-square ...">
-  <div class="absolute top-0 right-0 h-1/2 w-1/2 ...">03</div>
-</div>
-
-<!-- Span left edge -->
-<div class="relative aspect-square ...">
-  <div class="absolute inset-y-0 left-0 w-1/2 ...">04</div>
-</div>
-
-<!-- Fill entire parent -->
-<div class="relative aspect-square ...">
-  <div class="absolute inset-0 ...">05</div>
-</div>
-
-<!-- Span right edge -->
-<div class="relative aspect-square ...">
-  <div class="absolute inset-y-0 right-0 w-1/2 ...">06</div>
-</div>
-
-<!-- Pin to bottom left corner -->
-<div class="relative aspect-square ...">
-  <div class="absolute bottom-0 left-0 h-1/2 w-1/2 ...">07</div>
-</div>
-
-<!-- Span bottom edge -->
-<div class="relative aspect-square ...">
-  <div class="absolute inset-x-0 bottom-0 h-1/2 ...">08</div>
-</div>
-
-<!-- Pin to bottom right corner -->
-<div class="relative aspect-square ...">
-  <div class="absolute bottom-0 right-0 h-1/2 w-1/2 ...">09</div>
-</div>
-```
 
 ---
 
@@ -94,14 +94,14 @@ The style is preferable because it shows a clear distinction between list items 
 How do you quickly style a list like Bootstrap in Tailwind without writing custom CSS? Simple, use the `divide` utility. 
 
 demo: https://play.tailwindcss.com/YpbjZdaJoU
-```html
-<ul class="divide-y border">
-  <li class="p-3">a</li>
-  <li class="p-3">b</li>
-  <li class="p-3">c</li>
-  <li class="p-3">d</li>
-</ul>
-```
+
+    <ul class="divide-y border">
+      <li class="p-3">a</li>
+      <li class="p-3">b</li>
+      <li class="p-3">c</li>
+      <li class="p-3">d</li>
+    </ul>
+
 ---
 # Conclusion
 Thank you for reading my post. Now you know a few ways to reduce the number of utility classes included in your code. Here is a final product that uses all the techniques mentioned above: https://play.tailwindcss.com/6mpXYGwfdE

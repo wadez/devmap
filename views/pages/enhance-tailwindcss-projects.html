@@ -26,14 +26,12 @@
 
 <p>Forcing a size for media is non-trivial with pixels but how do you force a responsive ratio? Perhaps, a profile banner is 1500x500 pixels but user uploaded content makes preserving user experiences challenging. The answer is aspect ratio containers.</p>
 
-<p>demo: https://play.tailwindcss.com/hBXgOiGwv7
-```html</p>
+<p>demo: https://play.tailwindcss.com/hBXgOiGwv7</p>
 
-<iframe class="w-full aspect-video ..." 
-        src="https://www.youtube.com/ ...">
-</iframe>
-
-<p>```</p>
+<pre><code>&lt;iframe class="w-full aspect-video ..." 
+        src="https://www.youtube.com/ ..."&gt;
+&lt;/iframe&gt;
+</code></pre>
 
 <p>Aspect ratios will force the content to grow to the width of the container while auto-scaling the height to match the ratio to <code>16:9</code>.  A node with a width of <code>1920</code> will have a height of <code>1080</code> while on mobile it will scale to <code>320x180</code>.</p>
 
@@ -47,63 +45,53 @@
 
 <p>However, Tailwind developers know this technique is common. Now a single utility class will handle all the positioning. Insets will fill or partially fill the entire parent node.</p>
 
-<p>demo: https://play.tailwindcss.com/4ZTlx80ryN
-```html
-<!-- Pin to top left corner --></p>
+<p>demo: https://play.tailwindcss.com/4ZTlx80ryN</p>
 
-<div class="relative aspect-square ...">
-  <div class="absolute left-0 top-0 h-1/2 w-1/2 ...">01</div>
-</div>
+<pre><code>&lt;!-- Pin to top left corner --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute left-0 top-0 h-1/2 w-1/2 ..."&gt;01&lt;/div&gt;
+&lt;/div&gt;
 
-<p><!-- Span top edge --></p>
+&lt;!-- Span top edge --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute inset-x-0 top-0 h-1/2 ..."&gt;02&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="relative aspect-square ...">
-  <div class="absolute inset-x-0 top-0 h-1/2 ...">02</div>
-</div>
+&lt;!-- Pin to top right corner --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute top-0 right-0 h-1/2 w-1/2 ..."&gt;03&lt;/div&gt;
+&lt;/div&gt;
 
-<p><!-- Pin to top right corner --></p>
+&lt;!-- Span left edge --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute inset-y-0 left-0 w-1/2 ..."&gt;04&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="relative aspect-square ...">
-  <div class="absolute top-0 right-0 h-1/2 w-1/2 ...">03</div>
-</div>
+&lt;!-- Fill entire parent --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute inset-0 ..."&gt;05&lt;/div&gt;
+&lt;/div&gt;
 
-<p><!-- Span left edge --></p>
+&lt;!-- Span right edge --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute inset-y-0 right-0 w-1/2 ..."&gt;06&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="relative aspect-square ...">
-  <div class="absolute inset-y-0 left-0 w-1/2 ...">04</div>
-</div>
+&lt;!-- Pin to bottom left corner --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute bottom-0 left-0 h-1/2 w-1/2 ..."&gt;07&lt;/div&gt;
+&lt;/div&gt;
 
-<p><!-- Fill entire parent --></p>
+&lt;!-- Span bottom edge --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute inset-x-0 bottom-0 h-1/2 ..."&gt;08&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="relative aspect-square ...">
-  <div class="absolute inset-0 ...">05</div>
-</div>
-
-<p><!-- Span right edge --></p>
-
-<div class="relative aspect-square ...">
-  <div class="absolute inset-y-0 right-0 w-1/2 ...">06</div>
-</div>
-
-<p><!-- Pin to bottom left corner --></p>
-
-<div class="relative aspect-square ...">
-  <div class="absolute bottom-0 left-0 h-1/2 w-1/2 ...">07</div>
-</div>
-
-<p><!-- Span bottom edge --></p>
-
-<div class="relative aspect-square ...">
-  <div class="absolute inset-x-0 bottom-0 h-1/2 ...">08</div>
-</div>
-
-<p><!-- Pin to bottom right corner --></p>
-
-<div class="relative aspect-square ...">
-  <div class="absolute bottom-0 right-0 h-1/2 w-1/2 ...">09</div>
-</div>
-
-<p>```</p>
+&lt;!-- Pin to bottom right corner --&gt;
+&lt;div class="relative aspect-square ..."&gt;
+  &lt;div class="absolute bottom-0 right-0 h-1/2 w-1/2 ..."&gt;09&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
 <hr />
 
@@ -115,17 +103,17 @@
 
 <p>How do you quickly style a list like Bootstrap in Tailwind without writing custom CSS? Simple, use the <code>divide</code> utility. </p>
 
-<p>demo: https://play.tailwindcss.com/YpbjZdaJoU
-```html</p>
+<p>demo: https://play.tailwindcss.com/YpbjZdaJoU</p>
 
-<ul class="divide-y border">
-  <li class="p-3">a</li>
-  <li class="p-3">b</li>
-  <li class="p-3">c</li>
-  <li class="p-3">d</li>
-</ul>
+<pre><code>&lt;ul class="divide-y border"&gt;
+  &lt;li class="p-3"&gt;a&lt;/li&gt;
+  &lt;li class="p-3"&gt;b&lt;/li&gt;
+  &lt;li class="p-3"&gt;c&lt;/li&gt;
+  &lt;li class="p-3"&gt;d&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
 
-<h2>```</h2>
+<hr />
 
 <h1>Conclusion</h1>
 
