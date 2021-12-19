@@ -1,0 +1,134 @@
+{% extends 'layouts/page.html' %}
+
+{% block title %}Tips to Enhance TailwindCSS Projects{% endblock %}
+
+{% block description %}Read to discover ways to improve the quality of your TailwindCSS code. Many utility class names are redundant. Are you using the correct classes?{% endblock %}
+{% block image %}{% endblock %}
+{% block caption %}{% endblock %}
+{% block url %}{{ url_for('page', slug="enhance-tailwindcss-projects", _external=True) }}{% endblock %}
+
+{% block page %}<!--
+@title Tips to Enhance TailwindCSS Projects
+@tags HTML, CSS
+@slug enhance-tailwindcss-projects
+@description Read to discover ways to improve the quality of your TailwindCSS code. Many utility class names are redundant. Are you using the correct classes?
+-->
+
+<p>Recently, TailwindCSS released version 3.0 and the framework remains highly popular. Do you know all the little tricks for cleaner code?</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4j6381quzw1d95bztbw6.png" alt="Example of tailwindcss project" /></p>
+
+<hr />
+
+<h1>1. Aspect Ratio</h1>
+
+<p>A clean UI requires all cards and images to be perfectly sized across all devices. There are too many screen sizes to use responsive scaling units like <code>em</code>, <code>rem</code>, <code>%</code>, or <code>vh/vw</code> making media distorted on some platforms.</p>
+
+<p>Forcing a size for media is non-trivial with pixels but how do you force a responsive ratio? Perhaps, a profile banner is 1500x500 pixels but user uploaded content makes preserving user experiences challenging. The answer is aspect ratio containers.</p>
+
+<p>demo: https://play.tailwindcss.com/hBXgOiGwv7
+```html</p>
+
+<iframe class="w-full aspect-video ..." 
+        src="https://www.youtube.com/ ...">
+</iframe>
+
+<p>```</p>
+
+<p>Aspect ratios will force the content to grow to the width of the container while auto-scaling the height to match the ratio to <code>16:9</code>.  A node with a width of <code>1920</code> will have a height of <code>1080</code> while on mobile it will scale to <code>320x180</code>.</p>
+
+<hr />
+
+<h1>2. Inset Positioning</h1>
+
+<p>The inset technique plays nicely with aspect ratio containers. Perhaps, a square element needs nested scrolling content. The quickest solution is to use absolute positioning on a child element with full width and full height. Regardless this will take a few class names to correctly position the child element. </p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7hysv1n1nntnz3ysw2xk.png" alt="tailwindcss inset class" /></p>
+
+<p>However, Tailwind developers know this technique is common. Now a single utility class will handle all the positioning. Insets will fill or partially fill the entire parent node.</p>
+
+<p>demo: https://play.tailwindcss.com/4ZTlx80ryN
+```html
+<!-- Pin to top left corner --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute left-0 top-0 h-1/2 w-1/2 ...">01</div>
+</div>
+
+<p><!-- Span top edge --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute inset-x-0 top-0 h-1/2 ...">02</div>
+</div>
+
+<p><!-- Pin to top right corner --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute top-0 right-0 h-1/2 w-1/2 ...">03</div>
+</div>
+
+<p><!-- Span left edge --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute inset-y-0 left-0 w-1/2 ...">04</div>
+</div>
+
+<p><!-- Fill entire parent --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute inset-0 ...">05</div>
+</div>
+
+<p><!-- Span right edge --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute inset-y-0 right-0 w-1/2 ...">06</div>
+</div>
+
+<p><!-- Pin to bottom left corner --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute bottom-0 left-0 h-1/2 w-1/2 ...">07</div>
+</div>
+
+<p><!-- Span bottom edge --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute inset-x-0 bottom-0 h-1/2 ...">08</div>
+</div>
+
+<p><!-- Pin to bottom right corner --></p>
+
+<div class="relative aspect-square ...">
+  <div class="absolute bottom-0 right-0 h-1/2 w-1/2 ...">09</div>
+</div>
+
+<p>```</p>
+
+<hr />
+
+<h1>Divided List Styling</h1>
+
+<p>Tailwind is not perfect and often requires custom CSS to match the list styles of other popular frameworks like Boostrap. The iconic design places borders between each list item. </p>
+
+<p>The style is preferable because it shows a clear distinction between list items without needing complex structures like table, flexbox, or grid. Moreover, lists are more compatible across browsers.</p>
+
+<p>How do you quickly style a list like Bootstrap in Tailwind without writing custom CSS? Simple, use the <code>divide</code> utility. </p>
+
+<p>demo: https://play.tailwindcss.com/YpbjZdaJoU
+```html</p>
+
+<ul class="divide-y border">
+  <li class="p-3">a</li>
+  <li class="p-3">b</li>
+  <li class="p-3">c</li>
+  <li class="p-3">d</li>
+</ul>
+
+<h2>```</h2>
+
+<h1>Conclusion</h1>
+
+<p>Thank you for reading my post. Now you know a few ways to reduce the number of utility classes included in your code. Here is a final product that uses all the techniques mentioned above: https://play.tailwindcss.com/6mpXYGwfdE</p>
+{% endblock %}
+        
